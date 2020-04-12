@@ -20,11 +20,11 @@ ENTITY interface IS
         rst : IN STD_LOGIC;
         clk: IN STD_LOGIC;                
         din: IN STD_LOGIC_VECTOR(15 DOWNTO 0);         
-        rd_trigger : IN STD_LOGIC;
-        rd_trigger_ok : OUT STD_LOGIC;              
-        rd_continue : OUT STD_LOGIC;              
-        rd_continue_ok : IN STD_LOGIC;    
-        i_buff_rd_en : OUT STD_LOGIC;   
+        hsk_rd0 : IN STD_LOGIC;
+        hsk_rd_ok0 : OUT STD_LOGIC;              
+        hsk_wr0 : OUT STD_LOGIC;              
+        hsk_wr_en0 : IN STD_LOGIC;    
+        buff_rd_en : OUT STD_LOGIC;   
         i_eth_tx_clk : IN  STD_LOGIC;  
         o_eth_rstn : OUT   STD_LOGIC;
         o_eth_tx_d : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -63,18 +63,18 @@ ARCHITECTURE behavioral OF interface IS
         PORT(
             rst : IN STD_LOGIC;
             clk: IN STD_LOGIC;   
-            rd_trigger : IN STD_LOGIC;
-            rd_trigger_ok : OUT STD_LOGIC;              
-            rd_continue : OUT STD_LOGIC;              
-            rd_continue_ok : IN STD_LOGIC;
-            i_buff_rd_en : OUT STD_LOGIC;   
-            start : OUT STD_LOGIC;
-            counter : IN STD_LOGIC_VECTOR(11 DOWNTO 0)  
+            hsk_rd0 : IN STD_LOGIC;
+            hsk_rd_ok0 : OUT STD_LOGIC;              
+            hsk_wr0 : OUT STD_LOGIC;              
+            hsk_wr_en0 : IN STD_LOGIC;
+            buff_rd_en : OUT STD_LOGIC;   
+            eth_start : OUT STD_LOGIC;
+            eth_counter : IN STD_LOGIC_VECTOR(11 DOWNTO 0)  
         );
     END COMPONENT;
     
-    SIGNAL start : STD_LOGIC := '0';
-    SIGNAL counter : STD_LOGIC_VECTOR(11 DOWNTO 0) := (OTHERS => '0');  
+    SIGNAL eth_start : STD_LOGIC := '0';
+    SIGNAL eth_counter : STD_LOGIC_VECTOR(11 DOWNTO 0) := (OTHERS => '0');  
 
 BEGIN
 
@@ -93,8 +93,8 @@ BEGIN
             eth_tx_en => o_eth_tx_en,
             eth_tx_clk => i_eth_tx_clk,
             eth_ref_clk => o_eth_ref_clk,
-            start => start,
-            counter => counter
+            start => eth_start,
+            counter => eth_counter
         );
         
     INST_ETHERNET_CONTROL : ethernet_control
@@ -105,13 +105,13 @@ BEGIN
         PORT MAP(
             rst => rst,
             clk => i_eth_tx_clk,                            
-            rd_trigger => rd_trigger,
-            rd_trigger_ok => rd_trigger_ok,             
-            rd_continue => rd_continue,              
-            rd_continue_ok => rd_continue_ok,
-            i_buff_rd_en => i_buff_rd_en,   
-            start => start,
-            counter => counter
+            hsk_rd0 => hsk_rd0,
+            hsk_rd_ok0 => hsk_rd_ok0,             
+            hsk_wr0 => hsk_wr0,              
+            hsk_wr_en0 => hsk_wr_en0,
+            buff_rd_en => buff_rd_en,   
+            eth_start => eth_start,
+            eth_counter => eth_counter
         );
 
 END behavioral;

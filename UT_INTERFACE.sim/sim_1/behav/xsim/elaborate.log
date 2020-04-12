@@ -4,4 +4,28 @@ Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto ed04132ae0
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling architecture behavioral of entity xil_defaultlib.nibble_data [\nibble_data(eth_src_mac="110111...]
+Compiling architecture behavioral of entity xil_defaultlib.add_seq_num [add_seq_num_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_crc32 [add_crc32_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_preamble [add_preamble_default]
+Compiling architecture oddr_v of entity unisim.ODDR [\ODDR(ddr_clk_edge="SAME_EDGE")(...]
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=8,clkin...]
+Compiling architecture plle2_base_v of entity unisim.PLLE2_BASE [\PLLE2_BASE(clkfbout_mult=8,clki...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet [\ethernet(eth_src_mac="110111101...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_control [\ethernet_control(data=4,packets...]
+Compiling architecture behavioral of entity xil_defaultlib.interface
+Built simulation snapshot interface_behav
