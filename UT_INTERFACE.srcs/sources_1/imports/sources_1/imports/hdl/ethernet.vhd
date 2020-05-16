@@ -17,7 +17,12 @@ entity ethernet is
         ETH_SRC_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0);
         ETH_DST_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0);
         IP_SRC_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0);
-        IP_DST_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0)
+        IP_DST_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0);
+        UPD_SRC_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0);
+        UDP_DST_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0);
+        PAYLOAD: INTEGER;
+        LOWER_BOUND : UNSIGNED(11 DOWNTO 0);
+        HIGHER_BOUND : UNSIGNED(11 DOWNTO 0)        
     );
     PORT( 
         clock : IN STD_LOGIC; 
@@ -45,10 +50,16 @@ architecture Behavioral of ethernet is
     signal max_count     : unsigned(24 downto 0)         := (others => '0');
     component nibble_data is
         generic (
-            eth_src_mac       : std_logic_vector(47 downto 0);
-            eth_dst_mac       : std_logic_vector(47 downto 0);
-            ip_src_addr       : std_logic_vector(31 downto 0);
-            ip_dst_addr       : std_logic_vector(31 downto 0));
+            ETH_SRC_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0);
+            ETH_DST_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0);
+            IP_SRC_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0);
+            IP_DST_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0);
+            UPD_SRC_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0);
+            UDP_DST_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0);
+            PAYLOAD: INTEGER;
+            LOWER_BOUND : UNSIGNED (11 DOWNTO 0);
+            HIGHER_BOUND : UNSIGNED (11 DOWNTO 0)
+            );
         Port ( clk        : in STD_LOGIC;
                start      : in  STD_LOGIC;
                busy       : out STD_LOGIC;
@@ -131,12 +142,15 @@ begin
    -- Data for the packet packet 
    ----------------------------------------------------
 data: nibble_data generic map (
-      -- Details for the ARTY's IP settings 
-      eth_src_mac => ETH_SRC_MAC,
-      ip_src_addr => IP_SRC_ADDR,
-      -- details of the destination (broadcast)
-      eth_dst_mac => ETH_DST_MAC,
-      ip_dst_addr => IP_DST_ADDR
+        ETH_SRC_MAC => ETH_SRC_MAC,
+        ETH_DST_MAC => ETH_DST_MAC,
+        IP_SRC_ADDR => IP_SRC_ADDR,
+        IP_DST_ADDR => IP_DST_ADDR,
+        UPD_SRC_PORT => UPD_SRC_PORT,
+        UDP_DST_PORT => UDP_DST_PORT,
+        PAYLOAD => PAYLOAD,
+        LOWER_BOUND => LOWER_BOUND,
+        HIGHER_BOUND => HIGHER_BOUND
   ) port map (
       clk        => eth_tx_clk,
       start      => start_sending,

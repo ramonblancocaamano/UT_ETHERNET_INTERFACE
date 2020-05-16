@@ -1,6 +1,6 @@
 Vivado Simulator 2019.1
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot interface_behav xil_defaultlib.interface -log elaborate.log 
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -17,6 +17,8 @@ Compiling package ieee.vital_primitives
 Compiling package unisim.vpkg
 Compiling package ieee.std_logic_arith
 Compiling package ieee.std_logic_signed
+Compiling architecture behavioral of entity xil_defaultlib.enable [enable_default]
+Compiling architecture behavioral of entity xil_defaultlib.enable_16b [enable_16b_default]
 Compiling architecture behavioral of entity xil_defaultlib.nibble_data [\nibble_data(eth_src_mac="110111...]
 Compiling architecture behavioral of entity xil_defaultlib.add_seq_num [add_seq_num_default]
 Compiling architecture behavioral of entity xil_defaultlib.add_crc32 [add_crc32_default]
@@ -26,6 +28,6 @@ Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
 Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=8,clkin...]
 Compiling architecture plle2_base_v of entity unisim.PLLE2_BASE [\PLLE2_BASE(clkfbout_mult=8,clki...]
 Compiling architecture behavioral of entity xil_defaultlib.ethernet [\ethernet(eth_src_mac="110111101...]
-Compiling architecture behavioral of entity xil_defaultlib.ethernet_control [\ethernet_control(data=4,packets...]
-Compiling architecture behavioral of entity xil_defaultlib.interface
-Built simulation snapshot interface_behav
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_control [\ethernet_control(ndata=4,lower_...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_interface
+Built simulation snapshot ethernet_interface_behav

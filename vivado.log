@@ -1,0 +1,524 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon May  4 18:30:56 2020
+# Process ID: 17644
+# Current directory: C:/Users/ramon/Documents/GITHUB/UT_INTERFACE
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14592 C:\Users\ramon\Documents\GITHUB\UT_INTERFACE\UT_INTERFACE.xpr
+# Log file: C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/vivado.log
+# Journal file: C:/Users/ramon/Documents/GITHUB/UT_INTERFACE\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:08 . Memory (MB): peak = 674.934 ; gain = 56.691
+exit
+INFO: [Common 17-206] Exiting Vivadlaunch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ethernet_interface' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj ethernet_interface_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nibble_data'
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xelab -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling architecture behavioral of entity xil_defaultlib.nibble_data [\nibble_data(eth_src_mac="110111...]
+Compiling architecture behavioral of entity xil_defaultlib.add_seq_num [add_seq_num_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_crc32 [add_crc32_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_preamble [add_preamble_default]
+Compiling architecture oddr_v of entity unisim.ODDR [\ODDR(ddr_clk_edge="SAME_EDGE")(...]
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=8,clkin...]
+Compiling architecture plle2_base_v of entity unisim.PLLE2_BASE [\PLLE2_BASE(clkfbout_mult=8,clki...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet [\ethernet(eth_src_mac="110111101...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_control [\ethernet_control(ndata=4,npacke...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_interface
+Built simulation snapshot ethernet_interface_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ethernet_interface_behav -key {Behavioral:sim_1:Functional:ethernet_interface} -tclbatch {ethernet_interface.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source ethernet_interface.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ethernet_interface_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 901.059 ; gain = 0.000
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+add_force rst {1} {0 16ns }
+force1
+add_force clk  {1 0ns} {0 5000ps} -repeat_every 10000ps
+force2
+add_force i_eth_tx_clk  {1 0ns} {0 4000ps} -repeat_every 8000ps
+force3
+add_force din -radix hex {0} {1111 40ns} {2222 2104ns}  {3333 4168ns}  {4444 6232ns}
+force4
+add_force hsk_rd0 {0} {1 32ns} {0 40ns} 
+force5
+add_force hsk_wr_en0 {0} {1 6264ns} {0 6272ns}
+force6
+run 7000 ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ethernet_interface' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj ethernet_interface_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'nibble_data'
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xelab -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling architecture behavioral of entity xil_defaultlib.nibble_data [\nibble_data(eth_src_mac="110111...]
+Compiling architecture behavioral of entity xil_defaultlib.add_seq_num [add_seq_num_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_crc32 [add_crc32_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_preamble [add_preamble_default]
+Compiling architecture oddr_v of entity unisim.ODDR [\ODDR(ddr_clk_edge="SAME_EDGE")(...]
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=8,clkin...]
+Compiling architecture plle2_base_v of entity unisim.PLLE2_BASE [\PLLE2_BASE(clkfbout_mult=8,clki...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet [\ethernet(eth_src_mac="110111101...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_control [\ethernet_control(ndata=4,npacke...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_interface
+Built simulation snapshot ethernet_interface_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ethernet_interface_behav -key {Behavioral:sim_1:Functional:ethernet_interface} -tclbatch {ethernet_interface.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source ethernet_interface.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ethernet_interface_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 901.059 ; gain = 0.000
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+add_force rst {1} {0 16ns }
+force7
+add_force clk  {1 0ns} {0 5000ps} -repeat_every 10000ps
+force8
+add_force i_eth_tx_clk  {1 0ns} {0 4000ps} -repeat_every 8000ps
+force9
+add_force din -radix hex {0} {1111 40ns} {2222 2104ns}  {3333 4168ns}  {4444 6232ns}
+force10
+add_force hsk_rd0 {0} {1 32ns} {0 40ns} 
+force11
+add_force hsk_wr_en0 {0} {1 6264ns} {0 6272ns}
+force12
+run 7000 ns
+current_wave_config {Untitled 2}
+Untitled 2
+add_wave {{/ethernet_interface/INST_ETHERNET/data/data}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+Stopped at time : 53184 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 100
+run 7000 ns
+Stopped at time : 53192 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 100
+update_compile_order -fileset sources_1
+remove_bps -file {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd} -line 100
+remove_bps -file {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd} -line 101
+remove_bps -file {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd} -line 103
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ethernet_interface' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj ethernet_interface_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xelab -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ethernet_interface_behav -key {Behavioral:sim_1:Functional:ethernet_interface} -tclbatch {ethernet_interface.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source ethernet_interface.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ethernet_interface_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 901.059 ; gain = 0.000
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+add_force rst {1} {0 16ns }
+force13
+add_force clk  {1 0ns} {0 5000ps} -repeat_every 10000ps
+force14
+add_force i_eth_tx_clk  {1 0ns} {0 4000ps} -repeat_every 8000ps
+force15
+add_force din -radix hex {0} {1111 40ns} {2222 2104ns}  {3333 4168ns}  {4444 6232ns}
+force16
+add_force hsk_rd0 {0} {1 32ns} {0 40ns} 
+force17
+add_force hsk_wr_en0 {0} {1 6264ns} {0 6272ns}
+force18
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/ethernet_interface/INST_ETHERNET/data/data}} 
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+update_compile_order -fileset sources_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'ethernet_interface' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj ethernet_interface_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ethernet_control'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+"xelab -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto ed04132ae0d84b9894008693dbee1bbd --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ethernet_interface_behav xil_defaultlib.ethernet_interface -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling architecture behavioral of entity xil_defaultlib.nibble_data [\nibble_data(eth_src_mac="110111...]
+Compiling architecture behavioral of entity xil_defaultlib.add_seq_num [add_seq_num_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_crc32 [add_crc32_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_preamble [add_preamble_default]
+Compiling architecture oddr_v of entity unisim.ODDR [\ODDR(ddr_clk_edge="SAME_EDGE")(...]
+Compiling architecture bufg_v of entity unisim.BUFG [bufg_default]
+Compiling architecture plle2_adv_v of entity unisim.PLLE2_ADV [\PLLE2_ADV(clkfbout_mult=8,clkin...]
+Compiling architecture plle2_base_v of entity unisim.PLLE2_BASE [\PLLE2_BASE(clkfbout_mult=8,clki...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet [\ethernet(eth_src_mac="110111101...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_control [\ethernet_control(ndata=4,npacke...]
+Compiling architecture behavioral of entity xil_defaultlib.ethernet_interface
+Built simulation snapshot ethernet_interface_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "ethernet_interface_behav -key {Behavioral:sim_1:Functional:ethernet_interface} -tclbatch {ethernet_interface.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source ethernet_interface.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'ethernet_interface_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 901.059 ; gain = 0.000
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+current_wave_config {Untitled 4}
+Untitled 4
+add_wave {{/ethernet_interface/INST_ETHERNET/data/data}} 
+add_force rst {1} {0 16ns }
+ERROR: [Simtcl 6-8] No such HDL object rst
+run 7000 ns
+run 7000 ns
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+restart: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 901.059 ; gain = 0.000
+add_force rst {1} {0 16ns }
+force19
+add_force clk  {1 0ns} {0 5000ps} -repeat_every 10000ps
+force20
+add_force i_eth_tx_clk  {1 0ns} {0 4000ps} -repeat_every 8000ps
+force21
+add_force din -radix hex {0} {1111 40ns} {2222 2104ns}  {3333 4168ns}  {4444 6232ns}
+force22
+add_force hsk_rd0 {0} {1 32ns} {0 40ns} 
+force23
+add_force hsk_wr_en0 {0} {1 6264ns} {0 6272ns}
+force24
+run 7000 ns
+run 7000 ns
+run 7000 ns
+run 7000 ns
+add_bp {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd} 96
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 100
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 101
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 72
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+step
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 784 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+step
+Stopped at time : 784 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 784 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 792 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+run 7000 ns
+Stopped at time : 800 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+step
+Stopped at time : 800 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 800 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 808 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+run 7000 ns
+Stopped at time : 816 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+step
+Stopped at time : 816 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 816 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+step
+Stopped at time : 816 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 103
+step
+Stopped at time : 816 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 72
+step
+Stopped at time : 816 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 58
+run 7000 ns
+Stopped at time : 824 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+add_bp {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd} 112
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 96
+step
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+run 7000 ns
+Stopped at time : 784 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+add_bp {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd} 99
+remove_bps -file {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd} -line 96
+run 7000 ns
+Stopped at time : 784 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 792 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 784 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 784 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 792 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 792 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 800 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 800 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 808 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 808 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+UNSIGNED(eth_counter) - x"059"
+invalid command name "UNSIGNED(eth_counter)"
+eth_counter
+invalid command name "eth_counter"
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+add_bp {C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd} 97
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 768 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" Line 112
+run 7000 ns
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 97
+step
+Stopped at time : 776 ns : File "C:/Users/ramon/Documents/GITHUB/UT_INTERFACE/UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" Line 99
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit

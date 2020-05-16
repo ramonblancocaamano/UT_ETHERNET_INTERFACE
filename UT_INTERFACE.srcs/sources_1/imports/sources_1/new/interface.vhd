@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------
--- @FILE : interface.vhd 
+-- @FILE : ethernet_interface.vhd 
 -- @AUTHOR: BLANCO CAAMANO, RAMON. <ramonblancocaamano@gmail.com> 
 -- 
 -- @ABOUT: MANAGEMENT OF ETHERNET INTERFACE.
@@ -7,14 +7,16 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY interface IS
+ENTITY ethernet_interface IS
     GENERIC( 
-        DATA : INTEGER := 4;
-        PACKETS : INTEGER := 8;
-        ETH_SRC_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0) := x"DEADBEEF0123";
-        ETH_DST_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0) := x"000EC6E1F958";
-        IP_SRC_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"0A0A0A0A";
-        IP_DST_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"C0A8010B"
+        NDATA : INTEGER := 4;
+        NPACKETS : INTEGER := 8;
+        ETH_SRC_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0) := x"DEADBEEF0123"; -- RANDOM.
+        ETH_DST_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0) := x"000EC6E1F958"; -- PC.
+        IP_SRC_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"0A0A0A0A"; -- 10.10.10.10
+        IP_DST_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0) := x"0A0A0A01"; -- 10.10.10.1
+        UPD_SRC_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"1000"; -- 4096
+        UDP_DST_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0) := x"1000" -- 4096
     );
     PORT(
         rst : IN STD_LOGIC;
@@ -31,16 +33,18 @@ ENTITY interface IS
         o_eth_tx_en : OUT STD_LOGIC;            
         o_eth_ref_clk : OUT STD_LOGIC
     );  
-END interface;
+END ethernet_interface;
 
-ARCHITECTURE behavioral OF interface IS
+ARCHITECTURE behavioral OF ethernet_interface IS
 
     COMPONENT ethernet
         GENERIC( 
             ETH_SRC_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0);
             ETH_DST_MAC : STD_LOGIC_VECTOR(47 DOWNTO 0);
             IP_SRC_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0);
-            IP_DST_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0)
+            IP_DST_ADDR : STD_LOGIC_VECTOR(31 DOWNTO 0);
+            UPD_SRC_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0);
+            UDP_DST_PORT : STD_LOGIC_VECTOR(15 DOWNTO 0)
         );
         PORT( 
             clock : IN STD_LOGIC; 
@@ -57,8 +61,8 @@ ARCHITECTURE behavioral OF interface IS
     
     COMPONENT ethernet_control 
         GENERIC( 
-            DATA : INTEGER;
-            PACKETS : INTEGER
+            NDATA : INTEGER;
+            NPACKETS : INTEGER
         );
         PORT(
             rst : IN STD_LOGIC;
@@ -83,7 +87,9 @@ BEGIN
             ETH_SRC_MAC => ETH_SRC_MAC,
             ETH_DST_MAC => ETH_DST_MAC,
             IP_SRC_ADDR => IP_SRC_ADDR,
-            IP_DST_ADDR => IP_DST_ADDR
+            IP_DST_ADDR => IP_DST_ADDR,
+            UPD_SRC_PORT => UPD_SRC_PORT,
+            UDP_DST_PORT => UDP_DST_PORT
         )
         PORT MAP(
             clock => clk,
@@ -99,8 +105,8 @@ BEGIN
         
     INST_ETHERNET_CONTROL : ethernet_control
         GENERIC MAP( 
-            DATA => DATA,
-            PACKETS => PACKETS
+            NDATA => NDATA,
+            NPACKETS => NPACKETS
         ) 
         PORT MAP(
             rst => rst,

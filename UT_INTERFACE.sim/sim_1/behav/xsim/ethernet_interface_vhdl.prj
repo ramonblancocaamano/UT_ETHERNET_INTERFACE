@@ -1,0 +1,14 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../UT_INTERFACE.srcs/sources_1/imports/hdl/add_crc32.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/imports/hdl/add_preamble.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/imports/hdl/add_seq_num.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/new/enable.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/new/enable_16b.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/imports/sources_1/imports/hdl/ethernet.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_control.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/imports/hdl/nibble_data.vhd" \
+"../../../../UT_INTERFACE.srcs/sources_1/imports/sources_1/new/ethernet_interface.vhd" \
+
+# Do not sort compile order
+nosort
